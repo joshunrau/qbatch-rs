@@ -45,26 +45,26 @@ jobs:
         platform:
           - os: 'ubuntu-20.04'
             target: 'x86_64-unknown-linux-gnu'
-          # - os: 'ubuntu-20.04'
-          #   target: 'aarch64-unknown-linux-gnu'
-          # - os: 'macos-latest'
-          #   target: 'x86_64-apple-darwin'
-          # - os: 'macos-latest'
-          #   target: 'aarch64-apple-darwin'
+          - os: 'ubuntu-20.04'
+            target: 'aarch64-unknown-linux-gnu'
+          - os: 'macos-latest'
+            target: 'x86_64-apple-darwin'
+          - os: 'macos-latest'
+            target: 'aarch64-apple-darwin'
     runs-on: ${{ matrix.platform.os }}
     steps:
-    - name: Checkout Repository
-      uses: actions/checkout@v4
-    - name: Install Rust
-      uses: dtolnay/rust-toolchain@stable
-      with:
-        targets: ${{ matrix.platform.target }}
-    - name: Setup Rust Cache
-      uses: swatinem/rust-cache@v2
-    - name: Compile Binary
-      run: cargo --release --target ${{ matrix.platform.target }}  
-    - name: Upload artifac
-      uses: actions/upload-artifact@v3
-      with:
-        name: ${{ needs.create-release.outputs.release_id }}
-        path: ./
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: ${{ matrix.platform.target }}
+      - name: Setup Rust Cache
+        uses: swatinem/rust-cache@v2
+      - name: Compile Binary
+        run: cargo --release --target ${{ matrix.platform.target }}
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: ${{ github.env.PACKAGE_NAME }}-${{ matrix.platform.target }}
+          path: ./target/release/${{ github.env.PACKAGE_NAME }}
