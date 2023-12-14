@@ -1,0 +1,18 @@
+[package]
+name = "qbatch"
+description = "A CLI program that submits a list of commands to a queueing system, with the ability to break the list into chunks for parallel execution."
+authors = ["Jon Pipitone <jon@pipitone.ca>", "Gabriel A. Devenyi <gdevenyi@gmail.com>", "Joshua Unrau <contact@joshuaunrau.com>"]
+version = "3.0.0"
+edition = "2021"
+license = "Unlicense"
+repository = "https://github.com/CoBrALab/qbatch"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+name = "qbatch"
+crate-type = ["cdylib"]
+
+[dependencies]
+clap = { version = "4.4.11", features = ["derive", "wrap_help"] }
+pyo3 = { version = "0.20.0", features = ["extension-module"] }
