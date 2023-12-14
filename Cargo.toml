@@ -15,4 +15,4 @@ crate-type = ["cdylib"]
 
 [dependencies]
 clap = { version = "4.4.11", features = ["derive", "wrap_help"] }
-pyo3 = { version = "0.20.0" }
+pyo3 = { version = "0.20.0", features = ["abi3-py38"] }
