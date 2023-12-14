@@ -65,7 +65,7 @@ jobs:
       - name: Setup Rust Cache
         uses: swatinem/rust-cache@v2
       - name: Compile Binary
-        run: cargo build --release --target ${{ matrix.platform.target }}
+        run: cargo build --bins --release --target ${{ matrix.platform.target }}
       - name: Upload Artifact
         uses: actions/upload-artifact@v3
         with:
