@@ -62,4 +62,4 @@ jobs:
     - name: Setup Rust Cache
       uses: swatinem/rust-cache@v2
     - name: Compile Binary
-      run: cargo --release --target ${{ matrix.platform.target }}  
+      run: cargo build --release --target ${{ matrix.platform.target }}  
