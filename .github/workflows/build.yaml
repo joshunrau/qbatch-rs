@@ -44,26 +44,26 @@ jobs:
       matrix:
         platform:
           - os: 'ubuntu-20.04'
-            target: x86_64-unknown-linux-musl
-            arch: x86_64
+            target: 'x86_64-unknown-linux-musl'
+            arch: 'x86_64'
             libc: 'musl'
           - os: 'ubuntu-20.04'
-            target: aarch64-unknown-linux-musl
-            arch: aarch64
+            target: 'aarch64-unknown-linux-musl'
+            arch: 'aarch64'
             libc: 'musl'
           - os: 'ubuntu-20.04'
             target: 'x86_64-unknown-linux-gnu'
-            arch: x86_64
+            arch: 'x86_64'
             libc: 'gnu'
           - os: 'ubuntu-20.04'
             target: 'aarch64-unknown-linux-gnu'
-            arch: aarch64
+            arch: 'aarch64'
             libc: 'gnu'
           - os: 'macos-latest'
             target: 'x86_64-apple-darwin'
-            arch: x86_64
+            arch: 'x86_64'
           - os: 'macos-latest'
-            arch: aarch64
+            arch: 'aarch64'
             target: 'aarch64-apple-darwin'
     runs-on: ${{ matrix.platform.os }}
     steps:
